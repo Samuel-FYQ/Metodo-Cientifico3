@@ -1,0 +1,405 @@
+body {
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", Arial, sans-serif;
+    background: #eef2f7;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+.pantalla {
+    display: none;
+}
+
+.activa {
+    display: block;
+}
+
+
+/* =========================
+   LISTA DE CASOS
+========================= */
+
+#lista-casos button {
+    display: block;
+    width: 60%;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 18px;
+    background: #4a76fd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+#lista-casos button:hover {
+    opacity: 0.9;
+}
+
+
+/* =========================
+   CONTENEDOR ACTIVIDAD
+========================= */
+
+#contenedor {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+#texto {
+    width: 45%;
+}
+
+#etiquetas {
+    width: 30%;
+}
+
+
+/* =========================
+   BLOQUES
+========================= */
+
+.bloque {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 2px dashed #ccc;
+    min-height: 60px;
+    text-align: left;
+    touch-action: manipulation;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.bloque.correcto {
+    border-color: #4caf50;
+    background: #e8ffe8;
+}
+
+.bloque.incorrecto {
+    border-color: #e53935;
+    background: #ffe8e8;
+}
+
+
+/* =========================
+   ETIQUETAS
+========================= */
+
+.etiqueta {
+    background: #4a76fd;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 6px;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    transition:
+        transform 0.15s,
+        box-shadow 0.15s,
+        opacity 0.15s;
+}
+
+.etiqueta.seleccionada {
+    transform: scale(1.05);
+    box-shadow:
+        0 0 0 4px #ffd54f,
+        0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.etiqueta.usada {
+    opacity: 0.45;
+    cursor: default;
+}
+
+
+/* =========================
+   ETIQUETA COLOCADA
+========================= */
+
+.colocada {
+    margin-top: 10px;
+    padding: 6px 10px;
+    display: inline-block;
+    background: #4caf50;
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   RESULTADO
+========================= */
+
+#resultado {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
+/* =========================
+   AUTOR
+========================= */
+
+#autorInicio,
+#autorActividad {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px;
+    color: #444;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 6px 12px;
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================
+   INSIGNIAS
+========================= */
+
+#insigniasPanel .insignia {
+    background: gold;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 6px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+
+/* =========================
+   CERTIFICADO
+========================= */
+
+.certificado {
+    display: none;
+    width: 500px;
+    margin: auto;
+}
+
+.marco {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    border: 8px solid #d4af37;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.tituloCert {
+    font-size: 30px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.subCert {
+    margin-top: -5px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.nombreCert {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.cursoCert {
+    font-size: 20px;
+    margin-top: 0;
+}
+
+.textoInsignias {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+.contenedorInsignias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.insigniaExport {
+    background: #fff7c2;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #8a6d00;
+    border: 2px solid #e6d98b;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.firmaCert {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #777;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    body {
+        padding: 15px;
+    }
+
+    #contenedor {
+        gap: 20px;
+    }
+
+    #texto {
+        width: 55%;
+    }
+
+    #etiquetas {
+        width: 35%;
+    }
+
+    #lista-casos button {
+        width: 80%;
+    }
+}
+
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width: 650px) {
+
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    #contenedor {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    #texto,
+    #etiquetas {
+        width: 100%;
+    }
+
+    .bloque {
+        padding: 14px;
+        margin: 8px 0;
+        min-height: 50px;
+        box-sizing: border-box;
+    }
+
+    .etiqueta {
+        display: block;
+        margin: 8px 0;
+        padding: 13px;
+        font-size: 16px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .etiqueta.seleccionada {
+        transform: scale(1.02);
+        box-shadow:
+            0 0 0 4px #ffd54f,
+            0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #lista-casos button {
+        width: 100%;
+        font-size: 17px;
+        padding: 12px;
+    }
+
+    #autorInicio,
+    #autorActividad {
+        position: static;
+        display: inline-block;
+        margin-top: 20px;
+        font-size: 12px;
+    }
+
+    .certificado {
+        width: 95%;
+    }
+
+    .marco {
+        padding: 20px;
+        border-width: 6px;
+    }
+
+    .tituloCert {
+        font-size: 25px;
+    }
+
+    .nombreCert {
+        font-size: 21px;
+    }
+
+    .cursoCert {
+        font-size: 18px;
+    }
+}
+
+
+/* =========================
+   MÓVILES PEQUEÑOS
+========================= */
+
+@media (max-width: 400px) {
+
+    body {
+        padding: 8px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .bloque {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .etiqueta {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    #puntuacion {
+        font-size: 15px;
+    }
+}
